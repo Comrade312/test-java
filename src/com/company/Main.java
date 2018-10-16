@@ -1,57 +1,28 @@
 package com.company;
 
+import java.util.Date;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.ListIterator;
 
 public class Main {
 
 
-    public static void main(String[] args) throws IOException {
-        /*ArrayList<Person> pList = new ArrayList<Person>();
-        ArrayList l = new ArrayList();
-        Person[] mas = new Person[3];
-        mas[0] = new Person("A", "B");
-        mas[1] = new Person("C", "D");
-        mas[2] = new Person("E", "F");
-        FileOutputStream fos = null;
-        try {
-            fos = new FileOutputStream("log1.sr");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        ObjectOutputStream ous = null;
-        try {
-            ous = new ObjectOutputStream(fos);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws InterruptedException {
 
-        for (Person p: mas) {
-            pList.add(p);
 
-        }
 
-        ous.writeObject(pList);
+        TimeoutQueue<String> tq = new TimeoutQueue<String>();
+        tq.offer("artem", 100);
+        Thread.sleep(100);
+        tq.offer("oleg", 16);
+        Thread.sleep(15);
+        tq.offer("avit9", 100);
+        tq.offer("kongo", 100);
+        tq.offer("ritail", 100);
 
-        ous.close();
-
-        pList = null;
-
-        mas[0] = null;
-        mas[1] = null;
-        mas[2] = null;
-
-        FileInputStream fis = new FileInputStream("log1.sr");
-
-        ObjectInputStream ois = new ObjectInputStream(fis);
-
-        pList = (ArrayList<Person>)ois.readObject();
-
-        for (int i = 0; i < 3; i ++) {
-            pList.get(i).show();
-        }*/
-
-        new SortFiles().sortFiles();
+        System.out.println(tq.poll());
 
 
 
